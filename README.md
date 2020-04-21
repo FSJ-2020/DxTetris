@@ -1,8 +1,9 @@
 # DxTetris
 
 Este repositorio se construye en base a varias iteraciones sobre el mismo código
-probablemente algunas versiones no funionen tan bien ni tengan todo lo necesario
-El obetivo es completar la funcionalidades basicas que son:
+probablemente algunas versiones no funionen tan bien ni tengan todo lo necesario.
+
+El objetivo es completar la funcionalidades básicas que son:
 
 - [x] Desplegar las figuras
 - [x] Desplegar figuras dinamicamente
