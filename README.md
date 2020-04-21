@@ -21,6 +21,14 @@ Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
 de los cambios realizados por cada versión en este readme.
 
+## v3
+
+- Definir matriz tetris inicial
+- Se mueve codigo de script a nuevo archivo game.js
+- Definir elementos a poner en la matriz
+- Despliega un solo elemento al principio de la matriz
+  este elemento es seleccionado dinamicamente desde la lista de formas
+
 ## v2
 
 - Se mueve el css a otro archivo
