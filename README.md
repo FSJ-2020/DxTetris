@@ -23,7 +23,13 @@ de los cambios realizados por cada versión en este readme.
 
 ## v2
 
-- Pendiente
+- Se mueve el css a otro archivo
+- Se agrega etiqueta script al final para escribir el html usando javascript
+- Se crea matriz bi dimencional para representar elementos
+- Se agrega vector mapColors para relacionar la posicion con la classe css que
+  representa el color
+- Nueva función displayTetris que recorre la matriz y crea los divs rows y los divs
+  internos con los colores
 
 ## v1
 

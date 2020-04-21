@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0px dotted pink;
+}
+
+body {
+    background-color: gray;
+}
+
+div.row {
+    height: 20px;
+}
+
+div.row div {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 0px solid black;
+}
+
+div.empty {
+    background-color: black;
+}
+
+div.yellow {
+    background-color: yellow;
+}
+
+div.red {
+    background-color: red;
+}
+
+div.blue {
+    background-color: blue;
+}
+
+div.green {
+    background-color: green;
+}

@@ -1,223 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            outline: 0px dotted pink;
-        }
+    <title>DxTetris</title>
+    <link rel="stylesheet" href="style.css">
 
-        body {
-            background-color: gray;
-        }
-
-        div.row {
-            height: 20px;
-        }
-
-        div.row div {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            border: 0px solid black;
-        }
-
-        div.empty {
-            background-color: black;
-        }
-
-        div.yellow {
-            background-color: yellow;
-        }
-
-        div.red {
-            background-color: red;
-        }
-
-        div.blue {
-            background-color: blue;
-        }
-
-        div.green {
-            background-color: green;
-        }
-    </style>
 </head>
 
 <body>
 
     <div class="content">
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="yellow"></div>
-            <div class="yellow"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="yellow"></div>
-            <div class="yellow"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-
-        <div class="row">
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-
-
-        <div class="row">
-            <div class="red"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="green"></div>
-            <div class="green"></div>
-            <div class="green"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-
-
-        <div class="row">
-            <div class="red"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="green"></div>
-            <div class="empty"></div>
-            <div class="blue"></div>
-            <div class="blue"></div>
-        </div>
-
-
-        <div class="row">
-            <div class="red"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="blue"></div>
-            <div class="blue"></div>
-            <div class="empty"></div>
-        </div>
-
-        <div class="row">
-            <div class="red"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-        </div>
-
+        <div id="tetris"></div>
     </div>
+    <script>
+        // Matriz para representar el juego
+        var tetris = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [3, 0, 0, 0, 0, 0, 2, 0, 0, 0],
+            [3, 0, 0, 0, 0, 2, 2, 2, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 4, 4, 0, 0, 0, 0, 0],
+            [0, 0, 4, 4, 0, 0, 0, 0, 0, 0]
+        ];
+        // Matriz para relacionar colores con numeros de matriz tetris
+        // 0 = empty, 1 = yellow, etc...
+        var mapColors = ['empty', 'yellow', 'blue', 'red', 'green']
 
+        // Despliega los elementos div en base a la matriz tetris
+        function displayTetris() {
+            var output = '';
+            for (let i = 0; i < tetris.length; i++) {
+                output += "<div class='row'>";
+                for (let j = 0; j < tetris[i].length; j++) {
+                    output += "<div class='" + mapColors[tetris[i][j]] + "'></div>";
+                }
+                output += "</div>";
+            }
+            // Reemplaza el contenido
+            document.getElementById("tetris").innerHTML = output;
+        }
+        displayTetris();
+    </script>
 </body>
 
 </html>
