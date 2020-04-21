@@ -4,6 +4,9 @@ var tetris;
 // Define velocidad del juego
 var speed = 350;
 
+// Variable para asignar el intervalo
+var loopInterval = 0;
+
 // Matriz para relacionar colores con numeros de matriz tetris
 // 0 = empty, 1 = yellow, etc...
 var mapColors = ['empty', 'yellow', 'blue', 'red', 'green']
@@ -152,8 +155,14 @@ function moveShape() {
         colorise(element, element.color);
         element.isMoving = true;
     } else {
-        // verifica que si se ha salido de la matriz tetris
-        if (element.y + element.shape.length >= tetris.length) {
+        // verifica que si se ha salido de la matriz tetris o si colisiona verticalmente
+        if (!canGoDown(element)) {
+            if (element.y == 0) {
+                console.log("Fin del juego");
+                clearInterval(loopInterval);
+                loopInterval = 0;
+                return;
+            }
             selectRandomForm();
         } else { // La posicion aun es valida
             // Limpia el color en la posicion original
@@ -164,7 +173,30 @@ function moveShape() {
         }
     }
 }
+/**
+ * Verifica si el elemento ha llegado al final o si 
+ * colisiona verticalmente con otros objetos
+ * @param {*} element elemento en movimiento 
+ */
+function canGoDown(element) {
 
+    // Valida la posicion y + el largo de la forma versus el largo de la matriz tetris
+    if (element.y + element.shape.length >= tetris.length) {
+        return false;
+    }
+    // verifica la colision con otras figuras en el fondo del tetris
+    for (var x = 0; x < element.shape[0].length; x++) {
+        for (var y = element.shape.length - 1; y >= 0; y--) {
+            if (element.shape[y][x] == 1) {
+                if (tetris[y + element.y + 1][x + element.x] != 0) {
+                    return false
+                }
+                break;
+            }
+        }
+    }
+    return true;
+}
 /**
  * Funcion para ejecutar las instrucciones en un intervalo de tiempo
  */
@@ -181,4 +213,4 @@ selectRandomForm();
 displayTetris();
 
 // Configura intervalo de tiempo para ejecutar el loop principal
-setInterval(gameLoop, speed);
+loopInterval = setInterval(gameLoop, speed);
