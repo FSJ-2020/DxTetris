@@ -1,5 +1,9 @@
 // Matriz para representar el juego
 var tetris;
+
+// Define velocidad del juego
+var speed = 350;
+
 // Matriz para relacionar colores con numeros de matriz tetris
 // 0 = empty, 1 = yellow, etc...
 var mapColors = ['empty', 'yellow', 'blue', 'red', 'green']
@@ -65,20 +69,31 @@ function selectRandomForm() {
     // y que luego podremos cambiar
     element.x = xpos;
     element.y = 0; // Partimos arriba
+    // Definimos parametro para saber si esta en movimiento
+    element.isMoving = false;
 
     // Guarda la referencia al objeto que estamos agregando
     running = element;
 
+    // Llama a colorise para agregar el color en la matriz de tetris
+    colorise(element, element.color);
+}
+
+/**
+ * Agrega el elemento y color de la forma en la matriz
+ * @param {*} element  // Elemento con la forma
+ * @param {*} color // Color a pintar
+ */
+function colorise(element, color) {
     // Agrega la forma del elemento a la matriz tetris
     for (var y = 0; y < element.shape.length; y++) {
         for (var x = 0; x < element.shape[0].length; x++) {
             if (element.shape[y][x] == 1) {
-                tetris[y + element.y][x + element.x] = element.color;
+                tetris[y + element.y][x + element.x] = color;
             }
         }
     }
 }
-
 /**
  * Devuelve un numero random entre el min (incluido) y el max (excluido)
  */
@@ -120,9 +135,50 @@ function displayTetris() {
     document.getElementById("tetris").innerHTML = output;
 }
 
+/**
+ * Mueve la forma running hacia abajo
+ * En caso de que este al inicio solo la agrega utilizando la funcion colorise
+ * En caso que este al final no invoca a selectRandomForm para crear una figura
+ * nueva al comienzo de la matriz.
+ * En el caso que no este al comienzo ni al final realiza limpieza de la figura
+ * en la posicion actual, luego incremente la posicion y
+ * finalmente agrega la figura en la nueva posicion.
+ */
+function moveShape() {
+    // Copy reference from running object
+    let element = running;
+
+    if (element.y == 0 && !element.isMoving) {
+        colorise(element, element.color);
+        element.isMoving = true;
+    } else {
+        // verifica que si se ha salido de la matriz tetris
+        if (element.y + element.shape.length >= tetris.length) {
+            selectRandomForm();
+        } else { // La posicion aun es valida
+            // Limpia el color en la posicion original
+            colorise(element, 0);
+            // Incrementa la posicion vertical
+            element.y++;
+            colorise(element, element.color);
+        }
+    }
+}
+
+/**
+ * Funcion para ejecutar las instrucciones en un intervalo de tiempo
+ */
+function gameLoop() {
+    moveShape();
+    displayTetris();
+}
+
 // Inicializa la matriz
 initTetris();
 // Agrega un elemento
 selectRandomForm();
 // Despliega el tetris
 displayTetris();
+
+// Configura intervalo de tiempo para ejecutar el loop principal
+setInterval(gameLoop, speed);
