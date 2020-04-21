@@ -31,10 +31,15 @@ El objetivo es completar la funcionalidades básicas que son:
 - [ ] Iniciar y pausar el juego
 - [ ] Agregar musica al juego
 - [ ] Agregar sonidos en algunas acciones
+- [ ] Agregar figuras que faltan
+- [ ] Mejorar el estilo de cada celda con color
 
 Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
 de los cambios realizados por cada versión en este readme.
+
+## v6
+
 
 ## v5
 
