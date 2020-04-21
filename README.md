@@ -23,9 +23,9 @@ El objetivo es completar la funcionalidades básicas que son:
 - [x] Desplegar figuras dinamicamente
 - [x] Hacer que las figuras deciendan
 - [x] Limitar descenso hasta el fondo
-- [ ] Acomular las figuras en el fondo
+- [x] Acomular las figuras en el fondo
 - [ ] Mover las figuras lateralmente
-- [ ] Detectar colisiones entre las figuras que ya estaban en el fondo
+- [x] Detectar colisiones entre las figuras que ya estaban en el fondo
 - [ ] Detectar cuando se completan las lineas y limpiar las lineas.
 - [ ] Agregar un area de puntaje e Incrementar el puntaje al detectar lineas completas
 - [ ] Iniciar y pausar el juego
@@ -35,6 +35,14 @@ El objetivo es completar la funcionalidades básicas que son:
 Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
 de los cambios realizados por cada versión en este readme.
+
+## v5
+
+- Fix readme typos and layout
+- se agrega contenido a readme
+- Se detectan colisiones verticales
+- Se detecta caso de fin de juego
+- Se interrumpe el intervalo en caso de fin de juego
 
 ## v4
 
