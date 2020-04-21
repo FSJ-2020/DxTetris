@@ -1,7 +1,21 @@
 # DxTetris
 
+Este juego es intenta ser una version tributo al mitico Tetris.
+
+Tiene tantas versiones que solo intentare replicar la que recuerdo, de 8 bits.
+Que jugaba en los años 80 en una consola replica de la de nintendo.
+Esto solo con fines educativos.
+
+Pueden obtener más información de Juego y su autor Alekséi Pázhitnov en:
+
+[Wikipedia](https://es.wikipedia.org/wiki/Tetris)
+
 Este repositorio se construye en base a varias iteraciones sobre el mismo código
-probablemente algunas versiones no funionen tan bien ni tengan todo lo necesario.
+probablemente algunas versiones no funionen tan bien ni tengan todo lo necesario
+intentan deflejar cada version los pasos y el avance del desarrollo.
+
+Las versiones corresponderan a una rama, con el nombre v1, v2, etc.
+Y en master se encuentra la version actual en desarrollo.
 
 El objetivo es completar la funcionalidades básicas que son:
 
