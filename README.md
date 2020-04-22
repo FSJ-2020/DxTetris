@@ -33,6 +33,7 @@ El objetivo es completar la funcionalidades básicas que son:
 - [ ] Agregar sonidos en algunas acciones
 - [ ] Agregar figuras que faltan
 - [ ] Mejorar el estilo de cada celda con color
+- [ ] Rotar figuras
 
 Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
