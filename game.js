@@ -163,6 +163,7 @@ function moveShape() {
         if (!canGoDown(element)) {
             if (element.y == 0) {
                 console.log("Fin del juego");
+                document.getElementById("status").innerHTML = "Game Over";
 
                 clearInterval(loopInterval);
                 loopInterval = 0;
@@ -241,13 +242,16 @@ function startPauseGame() {
         if (!running) {
             selectRandomForm();
             console.log("Starting");
+            document.getElementById("status").innerHTML = "Start";
         } else {
             console.log("Continue");
+            document.getElementById("status").innerHTML = "Continue";
         }
         // Configura intervalo de tiempo para ejecutar el loop principal
         loopInterval = setInterval(gameLoop, speed);
     } else {
         console.log("Pause");
+        document.getElementById("status").innerHTML = "Pause";
         clearInterval(loopInterval);
         loopInterval = 0;
     }

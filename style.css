@@ -5,7 +5,26 @@
 }
 
 body {
+    background-color: whitesmoke;
+}
+
+h1{
+    text-align: center;
+}
+
+div.content{
+    padding: 20px;
     background-color: gray;
+    margin: 0 auto;
+    width: max-content;
+}
+
+
+
+#tetris {
+    margin-left: 10px;
+    width: auto;
+    display: inline-block;
 }
 
 div.row {
@@ -16,7 +35,7 @@ div.row div {
     width: 20px;
     height: 20px;
     display: inline-block;
-    border: 0px solid black;
+    border: 1px solid black;
 }
 
 div.empty {
@@ -37,4 +56,47 @@ div.blue {
 
 div.green {
     background-color: green;
+}
+
+div.help{
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#info{
+    height: 292px;
+    background-color: darkslategray;
+    color: white;
+    padding: 10px;
+
+}
+
+#info h2{
+    margin-top: 15px;
+}
+
+#score span{
+    font-weight: bolder;
+}
+
+#instructions ul{
+    list-style: none;
+}
+#instructions li{
+    margin-top: 5px;
+    text-align: center;
+}
+
+#status {
+    text-align: center;
+    text-shadow: azure;
+    background-color: darkblue;
+    color: orange;
+    display: inline-block;
+    width: 300px;
+    height: 30px;
+    padding:20px 0;
+    font-size: 30px;
 }
