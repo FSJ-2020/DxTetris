@@ -24,16 +24,21 @@ El objetivo es completar la funcionalidades básicas que son:
 - [x] Hacer que las figuras deciendan
 - [x] Limitar descenso hasta el fondo
 - [x] Acomular las figuras en el fondo
-- [ ] Mover las figuras lateralmente
+- [x] Mover las figuras lateralmente
 - [x] Detectar colisiones entre las figuras que ya estaban en el fondo
+- [ ] Detectar colisiones horizontales
 - [ ] Detectar cuando se completan las lineas y limpiar las lineas.
 - [ ] Agregar un area de puntaje e Incrementar el puntaje al detectar lineas completas
-- [ ] Iniciar y pausar el juego
+- [x] Iniciar y pausar el juego
 - [ ] Agregar musica al juego
 - [ ] Agregar sonidos en algunas acciones
 - [ ] Agregar figuras que faltan
 - [ ] Mejorar el estilo de cada celda con color
 - [ ] Rotar figuras
+- [ ] Avisar cual será la siguiente figura
+- [ ] Considerar niveles dentro del juego.
+      - Cada cierta cantidad de puntos cambias de nivel
+      - Al cambiar de nivel se incrementa la velocidad
 
 Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
@@ -41,6 +46,9 @@ de los cambios realizados por cada versión en este readme.
 
 ## v6
 
+- Se agrega detección de teclas
+- Nueva funcion startPause para ser usada para iniciar o detener el juego utilizando una tecla
+- Nueva logica para mover horizaontalmente y detectar coliciones horizontales
 
 ## v5
 

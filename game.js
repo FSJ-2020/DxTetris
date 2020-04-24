@@ -74,6 +74,10 @@ function selectRandomForm() {
     element.y = 0; // Partimos arriba
     // Definimos parametro para saber si esta en movimiento
     element.isMoving = false;
+    // Definimos el parametro movex para indicar la intencion
+    // de mover la figura horizontalmente 
+    // cuando sea -1 es izq y 1 derecha, 0 no hay movimiento
+    element.movex = 0;
 
     // Guarda la referencia al objeto que estamos agregando
     running = element;
@@ -159,6 +163,7 @@ function moveShape() {
         if (!canGoDown(element)) {
             if (element.y == 0) {
                 console.log("Fin del juego");
+
                 clearInterval(loopInterval);
                 loopInterval = 0;
                 return;
@@ -169,6 +174,16 @@ function moveShape() {
             colorise(element, 0);
             // Incrementa la posicion vertical
             element.y++;
+
+            // el usuario intenta mover a la izq o derecha
+            if (element.movex != 0) {
+                if (canGoHorizontal(element)) {
+                    element.x += element.movex;
+                }
+                // restaura el parametro
+                element.movex = 0;
+            }
+            // Agrega elemento en la nueva posición
             colorise(element, element.color);
         }
     }
@@ -197,6 +212,16 @@ function canGoDown(element) {
     }
     return true;
 }
+
+function canGoHorizontal(element) {
+    if (element.x + element.movex < 0) {
+        return false;
+    }
+    if (element.x + element.movex + element.shape[0].length > tetris[0].length) {
+        return false;
+    }
+    return true;
+}
 /**
  * Funcion para ejecutar las instrucciones en un intervalo de tiempo
  */
@@ -207,10 +232,45 @@ function gameLoop() {
 
 // Inicializa la matriz
 initTetris();
-// Agrega un elemento
-selectRandomForm();
+
 // Despliega el tetris
 displayTetris();
 
-// Configura intervalo de tiempo para ejecutar el loop principal
-loopInterval = setInterval(gameLoop, speed);
+function startPauseGame() {
+    if (!loopInterval) {
+        if (!running) {
+            selectRandomForm();
+            console.log("Starting");
+        } else {
+            console.log("Continue");
+        }
+        // Configura intervalo de tiempo para ejecutar el loop principal
+        loopInterval = setInterval(gameLoop, speed);
+    } else {
+        console.log("Pause");
+        clearInterval(loopInterval);
+        loopInterval = 0;
+    }
+}
+
+// Agrega funcion para detectar teclas
+document.onkeydown = function (e) {
+    console.log("KeyCode:" + e.keyCode);
+    if (e.keyCode == 37) {
+        // Izquierda
+        running.movex--;
+    } else if (e.keyCode == 39) {
+        // Derecha
+        running.movex++;
+    } else if (e.keyCode == 38) {
+        // Arriba
+    } else if (e.keyCode == 40) {
+        // Abajo
+    } else if (e.keyCode == 32) {
+        // Espacio
+    } else if (e.keyCode == 13) {
+        // Enter 
+        startPauseGame();
+    }
+}
+
