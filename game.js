@@ -163,8 +163,7 @@ function moveShape() {
         if (!canGoDown(element)) {
             if (element.y == 0) {
                 console.log("Fin del juego");
-                document.getElementById("status").innerHTML = "Game Over";
-
+                changeStatus("Juego Terminado");
                 clearInterval(loopInterval);
                 loopInterval = 0;
                 return;
@@ -237,21 +236,24 @@ initTetris();
 // Despliega el tetris
 displayTetris();
 
+/**
+ * Cambia el mensaje de estado actual del juego
+ * @param {String} text 
+ */
+function changeStatus(text) {
+    document.getElementById("status").innerHTML = text;
+}
+
 function startPauseGame() {
     if (!loopInterval) {
         if (!running) {
             selectRandomForm();
-            console.log("Starting");
-            document.getElementById("status").innerHTML = "Start";
-        } else {
-            console.log("Continue");
-            document.getElementById("status").innerHTML = "Continue";
         }
+        changeStatus("Corriendo")
         // Configura intervalo de tiempo para ejecutar el loop principal
         loopInterval = setInterval(gameLoop, speed);
     } else {
-        console.log("Pause");
-        document.getElementById("status").innerHTML = "Pause";
+        changeStatus("Detenido");
         clearInterval(loopInterval);
         loopInterval = 0;
     }
