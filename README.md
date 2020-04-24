@@ -33,7 +33,7 @@ El objetivo es completar la funcionalidades básicas que son:
 - [ ] Agregar musica al juego
 - [ ] Agregar sonidos en algunas acciones
 - [ ] Agregar figuras que faltan
-- [ ] Mejorar el estilo de cada celda con color
+- [x] Mejorar el estilo de cada celda con color
 - [ ] Rotar figuras
 - [ ] Avisar cual será la siguiente figura
 - [ ] Considerar niveles dentro del juego.
@@ -43,6 +43,19 @@ El objetivo es completar la funcionalidades básicas que son:
 Probablemente en el transcurso del desarrollo se agreguen mas funcionalidades
 Para cada iteración se mantendrá una rama con cada versión, así tambien un registro
 de los cambios realizados por cada versión en este readme.
+
+## v7
+
+- Mejoras de textos
+  - Se agrega funcion para reducir codigo y cambiar mas facil el mensaje de status
+  - Se cambian algunos textos para mantener lenguaje
+- Mejoras de layout
+  - Se agrega bloque div con contenido informativo en duro
+  - Se agrega bloque div con informacion de status para el juego
+  - Se agrega nuevos estilos en archivo css
+    - Mejoras en el tetris
+    - Definiciones para nuevos divs
+  - Se agrega informacion respecto del status del juego en div status desde codigo javascript
 
 ## v6
 
