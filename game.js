@@ -78,6 +78,9 @@ function selectRandomForm() {
     // de mover la figura horizontalmente 
     // cuando sea -1 es izq y 1 derecha, 0 no hay movimiento
     element.movex = 0;
+    // Definimos parametro rotate para indicar la intencion
+    // de rotar la figura, valores posibles 0 y 1
+    element.rotate = 0;
 
     // Guarda la referencia al objeto que estamos agregando
     running = element;
@@ -141,6 +144,25 @@ function displayTetris() {
     // Reemplaza el contenido
     document.getElementById("tetris").innerHTML = output;
 }
+/**
+ * Transpone la matriz shape
+ * @param {*} element
+ */
+function transposeShape(element) {
+    var array = element.shape;
+    var newArray = [];
+    for (var i = 0; i < array[0].length; i++) {
+        newArray.push([]);
+    };
+
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array[i].length; j++) {
+            newArray[j].push(array[i][j]);
+        };
+    };
+
+    element.shape = newArray;
+}
 
 /**
  * Mueve la forma running hacia abajo
@@ -174,6 +196,11 @@ function moveShape() {
             colorise(element, 0);
             // Incrementa la posicion vertical
             element.y++;
+
+            if (element.rotate != 0) {
+                transposeShape(element);
+                element.rotate = 0;
+            }
 
             // el usuario intenta mover a la izq o derecha
             if (element.movex != 0) {
@@ -274,6 +301,7 @@ document.onkeydown = function (e) {
         // Abajo
     } else if (e.keyCode == 32) {
         // Espacio
+        running.rotate = 1;
     } else if (e.keyCode == 13) {
         // Enter 
         startPauseGame();
