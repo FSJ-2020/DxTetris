@@ -40,20 +40,17 @@ function selectRandomForm() {
  * Transpone la matriz shape
  * @param {*} element
  */
-function transposeShape(element) {
-    var array = element.shape;
-    var newArray = [];
-    for (var i = 0; i < array[0].length; i++) {
-        newArray.push([]);
-    };
+function rotateShape(element) {
+    var matrix = element.shape;
+    var largo = matrix.length;
+    var nuevaMatrix = creaMatriz(largo, largo);
 
-    for (var i = 0; i < array.length; i++) {
-        for (var j = 0; j < array[i].length; j++) {
-            newArray[j].push(array[i][j]);
-        };
-    };
-
-    element.shape = newArray;
+    for (var i = 0, j = largo - 1; i < largo && j >= 0; i++, j--) {
+        for (var k = 0; k < largo; k++) {
+            nuevaMatrix[k][j] = matrix[i][k];
+        }
+    }
+    element.shape = nuevaMatrix;
 }
 
 /**
@@ -93,7 +90,7 @@ function moveShape() {
             element.y++;
 
             if (element.rotate != 0) {
-                transposeShape(element);
+                rotateShape(element);
                 element.rotate = 0;
             }
 

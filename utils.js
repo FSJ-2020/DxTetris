@@ -2,18 +2,28 @@
  * Inicaliza la matriz tetris
  */
 function initTetris() {
-
-    tetris = new Array(largo); // crea una matriz de longitud largo
-    for (var i = 0; i < largo; i++) {
-        // define cada elemento como una matriz de longitud ancho
-        tetris[i] = new Array(ancho);
-        for (var j = 0; j < ancho; j++) {
-            // asigna a cada elemento de la matriz bidimensional el valor por defecto
-            tetris[i][j] = valorPorDefecto;
-        }
-    }
+    // Crea la matriz principal
+    tetris = creaMatriz(largo, ancho);
     // Reinicia el puntaje
     score = 0;
+}
+
+/**
+ * Crea una matriz de tamaño largo y ancho
+ * @param {*} largo 
+ * @param {*} ancho 
+ */
+function creaMatriz(largo, ancho) {
+    var tetrix = new Array(largo); // crea una matriz de longitud largo
+    for (var i = 0; i < largo; i++) {
+        // define cada elemento como una matriz de longitud ancho
+        tetrix[i] = new Array(ancho);
+        for (var j = 0; j < ancho; j++) {
+            // asigna a cada elemento de la matriz bidimensional el valor por defecto
+            tetrix[i][j] = valorPorDefecto;
+        }
+    }
+    return tetrix;
 }
 
 /**
