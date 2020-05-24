@@ -27,8 +27,8 @@ El objetivo es completar la funcionalidades básicas que son:
 - [x] Mover las figuras lateralmente
 - [x] Detectar colisiones entre las figuras que ya estaban en el fondo
 - [ ] Detectar colisiones horizontales
-- [ ] Detectar cuando se completan las lineas y limpiar las lineas.
-- [ ] Agregar un area de puntaje e Incrementar el puntaje al detectar lineas completas
+- [x] Detectar cuando se completan las lineas y limpiar las lineas.
+- [x] Agregar un area de puntaje e Incrementar el puntaje al detectar lineas completas
 - [x] Iniciar y pausar el juego
 - [ ] Agregar musica al juego
 - [ ] Agregar sonidos en algunas acciones
