@@ -26,15 +26,15 @@ El objetivo es completar la funcionalidades básicas que son:
 - [x] Acomular las figuras en el fondo
 - [x] Mover las figuras lateralmente
 - [x] Detectar colisiones entre las figuras que ya estaban en el fondo
-- [ ] Detectar colisiones horizontales
+- [x] Detectar colisiones horizontales
 - [x] Detectar cuando se completan las lineas y limpiar las lineas.
 - [x] Agregar un area de puntaje e Incrementar el puntaje al detectar lineas completas
 - [x] Iniciar y pausar el juego
 - [ ] Agregar musica al juego
 - [ ] Agregar sonidos en algunas acciones
-- [ ] Agregar figuras que faltan
+- [x] Agregar figuras que faltan
 - [x] Mejorar el estilo de cada celda con color
-- [x] Rotar figuras
+- [x] Rotar figuras, se reescribe funcion
 - [ ] Avisar cual será la siguiente figura
 - [ ] Considerar niveles dentro del juego.
       - Cada cierta cantidad de puntos cambias de nivel
